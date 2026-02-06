@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Old Rock Products | Rubans Adhésifs</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+<style>
+body {margin:0;font-family:"Tahoma",sans-serif;background:#f9fbff;color:#222; direction: ltr;}
+
+/* Header */
+header {
+  background:#fff;
+  border-bottom:1px solid #eee;
+  padding:15px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  z-index:1000;
+}
+header .logo {text-align:center; display:flex; align-items:center; justify-content:center;}
+header .logo img {height:120px; display:block;} /* Taille ajustée pour le confort visuel */
+
+/* Menu Toggle à GAUCHE */
+.menu-toggle {
+    position:absolute;
+    left:20px;
+    top:50%;
+    transform: translateY(-50%);
+    font-size:26px;
+    cursor:pointer;
+    color:#000;
+}
+
+/* Panier à DROITE - Style Moderne WooCommerce */
+.header-cart {
+    position:absolute;
+    right:20px;
+    top:50%;
+    transform: translateY(-50%);
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+}
+.cart-icon-svg {
+    width: 28px;
+    height: 28px;
+    fill: none;
+    stroke: #000;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.cart-badge {
+    position:absolute;
+    top:-5px;
+    right:-8px;
+    background:#ff4136;
+    color:#fff;
+    border-radius:50%;
+    padding:2px 6px;
+    font-size:11px;
+    font-weight:bold;
+    min-width:14px;
+    text-align:center;
+}
+
+nav {
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:#fff;
+  box-shadow:0 4px 6px rgba(0,0,0,0.2);
+  width:240px;
+  flex-direction:column;
+}
+nav a {padding:12px;color:#000;text-decoration:none;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;}
+nav a:hover {background:#f5f5f5;}
+
+/* Section title */
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin: 60px 0 20px;
+}
+
+/* Hero carousel */
+{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Section Hero */
+        :root {
+            --primary-color: #ffffff;
+            --accent-color: #3b82f6; 
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        /* Image de fond avec voile sombre pour la lisibilité */
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%), 
+                        url('https://i.ibb.co/C5bSHN3w/Design-sans-titre-3.png');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* LA CARTE CORRIGÉE (Plus compacte sur PC) */
+        .hero-card {
+            max-width: 480px; /* Taille réduite pour faire plus pro sur PC */
+            padding: 45px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            color: white;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 4vw, 3rem); /* Taille plus contrôlée */
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 35px;
+            font-weight: 300;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-primary {
+            padding: 14px 28px;
+            background: white;
+            color: black;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary {
+            padding: 14px 28px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- AJUSTEMENTS MOBILE --- */
+        @media (max-width: 768px) {
+            .hero-section {
+                align-items: center;
+                text-align: center;
+            }
+
+            .hero-card {
+                max-width: 100%;
+                padding: 35px 20px;
+                margin: 0;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+
+            .cta-group {
+                flex-direction: column; /* Boutons l'un sur l'autre sur mobile */
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+/* Company Section */
+.company-container {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 30px;
+    background: transparent;
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+    font-family: 'Roboto', sans-serif;
+}
+.company-container.visible {opacity: 1;transform: translateY(0) scale(1);}
+.company-title {font-family:'Montserrat',sans-serif;font-size:36px;font-weight:700;color:#000;margin-bottom:20px;}
+.company-desc {font-size:18px;color:#333;line-height:1.8;margin-bottom:15px;}
+.learn-btn {
+    display:inline-block;padding:12px 24px;background:linear-gradient(135deg,#007bff,#00d4ff);
+    color:#ffffff !important;font-size:16px;font-weight:bold;border-radius:50px;text-decoration:none;cursor:pointer;
+    transition:transform .2s ease, box-shadow .3s ease; box-shadow:0 10px 25px rgba(0,123,255,0.3);
+}
+
+/* Product grid */
+.grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;margin:40px 0;padding:0 16px;}
+.product-card {
+  opacity:0;transform:translateY(50px) scale(0.95);transition:all .8s cubic-bezier(0.19,1,0.22,1);
+  text-align:center;background:#fff;border-radius:20px;padding:20px;box-shadow:0 15px 35px rgba(0,0,0,0.1);font-family:'Roboto',sans-serif;
+}
+.product-card.visible {opacity:1;transform:translateY(0) scale(1);}
+.product-card img {width:100%;border-radius:15px;transition:transform .6s ease; height:auto; display:block;}
+.product-card:hover img {transform:scale(1.08) rotate(-1deg);}
+.product-title {font-size:20px;font-weight:700;margin:15px 0 13px;color:#222;font-family:'Montserrat',sans-serif;}
+.product-desc {font-size:15px;color:#666;line-height:1.5;margin-bottom:20px; height: auto; overflow: visible;}
+.yards {font-size:14px;font-weight:bold;color:#0066cc;background:#eaf3ff;border:2px solid #0066cc;border-radius:10px;padding:6px 10px;margin-bottom:20px;display:inline-block;}
+.price {font-size:13px;font-weight:bold;color:#0066cc;margin-bottom:19px;}
+.buy-btn {display:inline-block;padding:12px 24px;border:none;background:linear-gradient(135deg,#007bff,#00d4ff);color:#ffffff !important;font-size:16px;font-weight:bold;border-radius:50px;cursor:pointer;transition:transform .2s ease, box-shadow .3s ease;box-shadow:0 10px 25px rgba(0,123,255,0.3);text-decoration:none;}
+
+/* Choix couleurs */
+.color-selection {display:flex;justify-content:center;gap:10px;margin-bottom:15px;}
+.color-dot {width:24px;height:24px;border-radius:50%;border:2px solid #ddd;cursor:pointer;transition:0.2s;}
+color-dot.active {border-color:#007bff;transform:scale(1.2);}
+
+/* Choix yard */
+.yard-select {
+  width:100%;
+  padding:10px;
+  border-radius:10px;
+  border:2px solid #0066cc;
+  background:#eaf3ff;
+  color:#0066cc;
+  font-weight:bold;
+  margin-bottom:20px;
+  cursor:pointer;
+}
+
+/* FAQ */
+#faq {max-width:900px;margin:60px auto; padding: 0 20px;}
+.faq-accordion {direction:ltr;color:#000;}
+.faq-q {width:100%;text-align:left;background:#fff;color:#000;border:1px solid #ddd;border-radius:12px;padding:16px 20px;cursor:pointer;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:space-between; margin-bottom: 8px;}
+.faq-q .icon {margin-left:10px; font-size:20px; line-height:1; transition: transform 0.3s ease;}
+.faq-q[aria-expanded="true"] .icon { transform: rotate(45deg); }
+.faq-a {max-height:0; overflow:hidden; transition:max-height .3s ease-out; background:#fafafa; border:1px solid #eee; border-top:none; border-radius:0 0 12px 12px; padding:0 20px; color:#333;}
+/* === CORRECTION FAQ : Le style du paragraphe est réinitialisé pour que l'accordéon fonctionne === */
+.faq-a p { 
+  margin: 0; 
+  padding: 16px 0; 
+  line-height: 1.6; 
+  color: #333; 
+}
+/* Contacts */
+footer {background:#333;color:#fff;text-align:center;padding:20px;margin-top:40px;}
+.contacts-section {max-width:900px;margin:60px auto 20px;padding:10px 20px;text-align:center;}
+.contacts-card {background:#fff;border:1px solid #eee;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,0.08);padding:24px;}
+.contacts-card a {color:#007bff;text-decoration:none;font-weight:700;}
+.social-links {margin-top:14px; display:flex; gap:10px; justify-content:center;}
+social-links a {width:44px; height:44px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; color:#fff; text-decoration:none;}
+social-links a img {width:24px; height:24px; display:block;}
+social-links a.fb {background:#1877f2;}
+social-links a.ig {background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);}
+social-links a.tt {background:#000;}
+
+/* CART DRAWER (à droite) */
+.drawer-overlay {position:fixed; inset:0; background:rgba(0,0,0,0.35); display:none; z-index:2000;}
+.drawer {
+  position:fixed; top:0; right:0; width:360px; max-width:88vw; height:100vh; background:#fff; box-shadow:-8px 0 20px rgba(0,0,0,0.2);
+  transform:translateX(100%); transition:transform .3s ease; z-index:2100; display:flex; flex-direction:column;
+}
+.drawer.open {transform:translateX(0);}
+.drawer-header {padding:16px; border-bottom:1px solid #eee; display:flex; align-items:center; justify-content:space-between;}
+.drawer-title {font-weight:800; font-family:'Montserrat',sans-serif;}
+drawer-content {padding:12px; overflow:auto; flex:1;}
+.cart-item {display:flex; gap:10px; align-items:center; border-bottom:1px solid #f0f0f0; padding:10px 0;}
+.cart-item img {width:60px; height:60px; object-fit:cover; border-radius:6px;}
+.item-info {flex:1;}
+.item-name {font-weight:700; font-size:14px;}
+.qty-input {width:60px; padding:6px; border:1px solid #ccc; border-radius:6px;}
+.remove-btn {background:#ffe9e9; color:#d63031; border:none; padding:6px 10px; border-radius:6px; cursor:pointer;}
+.drawer-footer {padding:14px; border-top:1px solid #eee;}
+.checkout-btn {width:100%; padding:12px; background:linear-gradient(135deg,#007bff,#00d4ff); color:#fff; border:none; border-radius:8px; font-weight:700; cursor:pointer;}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  
+  <div class="logo">
+    <a href="index.html"><img src="https://i.ibb.co/bjdp7pTj/Gemini-Generated-Image-gbpy4egbpy4egbpy-1.png" alt="Logo Bara pack" /></a>
+  </div>
+
+  <div class="header-cart" onclick="openDrawer()">
+    <svg class="cart-icon-svg" viewBox="0 0 24 24">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6z"></path>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <path d="M16 10a4 4 0 01-8 0"></path>
+    </svg>
+    <span id="cart-badge" class="cart-badge" style="display:none;">0</span>
+  </div>
+
+  <nav id="menu">
+    <a href="#apropos">À propos</a>
+    <a href="#produits">Produits</a>
+    <a href="#faq">FAQ</a>
+    <a href="#map">Localisation</a>
+    <a href="#contacts">Contact</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero-section">
+        <div class="hero-bg"></div>
+        
+        <div class="container">
+            <div class="hero-card">
+                <h1>L'Excellence de l'Emballage Redéfinie.</h1>
+                <p>Bara Pack fusionne résistance extrême et fiabilité pour transformer chacune de vos expéditions en une expérience de livraison parfaite.</p>
+                
+                <div class="cta-group">
+                    <a href="#produits" class="btn-primary">Découvrir</a>
+                    <a href="#apropos" class="btn-secondary">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Company -->
+<section id="apropos">
+  <div class="company-container">
+    <h2 class="company-title">Présentation de l'entreprise</h2>
+    <p class="company-desc">
+      Fondée en <strong>2024</strong>, <strong>Bara Pack</strong> s'est imposée comme l'un des leaders en Algérie dans le secteur de l'emballage. Nous sommes spécialisés dans la fabrication et la distribution d'une gamme diversifiée de produits : rubans adhésifs (transparent, brun, imprimé et papier), films plastiques et sachets. Grâce à notre engagement constant envers la qualité et l'innovation, nous fournissons des solutions sur mesure pour les marchés nationaux et internationaux, répondant ainsi à tous les besoins de conditionnement.
+    </p>
+    <a href="#produits" class="learn-btn">Découvrir nos produits</a>
+  </div>
+</section>
+
+<!-- Products -->
+<section id="produits">
+  <h2 class="section-title">Nos Produits</h2>
+  <div id="products-container" class="grid"></div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <h2 class="section-title">Questions Fréquentes</h2>
+  <div class="faq-accordion">
+    <button class="faq-q" aria-expanded="false">Quels types de rubans adhésifs proposez-vous ? <span class="icon">+</span></button>
+    <div class="faq-a"><p>Nous proposons une gamme variée : rubans pour peinture, rubans d'emballage, rubans scolaires.</p></div>
+
+    <button class="faq-q" aria-expanded="false">Quelle est la quantité minimale de commande ? <span class="icon">+</span></button>
+    <div class="faq-a"><p>Le minimum est de 10 cartons (possibilité de mélanger plusieurs produits).</p></div>
+
+    <button class="faq-q" aria-expanded="false">Proposez-vous la livraison ? <span class="icon">+</span></button>
+    <div class="faq-a"><p>Oui, nous livrons partout en Algérie et vers les pays d'Afrique et d'europe. La livraison est gratuite à partir de 60 cartons.</p></div>
+  </div>
+</section>
+
+<!-- Contacts -->
+<section id="contacts" class="contacts-section">
+  <h2 class="section-title">Contactez-nous</h2>
+  <div class="contacts-card">
+    <h3>Service Commercial</h3>
+    <p><a href="tel:+213549491811">+213 549 49 18 11</a></p>
+    <p><a href="tel:+213778251088">+213 778 25 10 88</a></p>
+    <h3>Email</h3>
+    <p><a href="mailto:Barapack.dz@gmail.com">Barapack.dz@gmail.com</a></p>
+    <div class="social-links">
+      <a class="fb" href="https://www.facebook.com/bara.pack.2025" target="_blank"><img src="https://cdn.simpleicons.org/facebook/ffffff" alt="Facebook"></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© Tous droits réservés. Bara Pack - 2026</p>
+  <p>Powered By SITEMAGIQUE</p>
+</footer>
+
+<!-- CART DRAWER -->
+<div id="drawer-overlay" class="drawer-overlay"></div>
+<div id="cart-drawer" class="drawer">
+  <div class="drawer-header">
+    <div class="drawer-title">Votre Panier</div>
+    <button onclick="closeDrawer()" style="background:none;border:none;font-size:20px;cursor:pointer;">✕</button>
+  </div>
+  <div id="drawer-content" class="drawer-content"></div>
+  <div class="drawer-footer">
+    <button class="checkout-btn" onclick="alert('Commande envoyée !')">Confirmer la commande</button>
+    <div style="font-size:11px; margin-top:8px; text-align:center; color:#666;">Minimum : 10 cartons au total.</div>
+  </div>
+</div>
+
+<script>
+// TOUS LES 11 PRODUITS TRADUITS
+const products = [
+  { id:"p1", name:"scotch Personalisé Fond Trensparent", description:"L'élégance de votre logo sur fond invisible. La signature premium pour vos colis.", image:"https://i.ibb.co/Q3nTqJMc/11.png", yard:false },
+  { id:"p2", name:"scotch Personalisé Fond Blanc", description:"L'élégance de votre logo sur fond blanc. La signature premium pour vos colis.", image:"https://i.ibb.co/0pFjVWdX/12.png", yard:false },
+  { id:"p3", name:"Papier Collant Jaune 16m / 44mm", description:"Ruban de masquage idéal pour la protection lors de travaux de peinture.", image:"https://i.ibb.co/N6GhTtbL/9.png", yard:false },
+  { id:"p4", name:"Papier Collant Blanc 16m / 44mm", description:"Protection de surfaces lors de la peinture, couleur blanche.", image:"https://i.ibb.co/LzrKpNj9/10.png", yard:false },
+  { id:"p5", name:"Scotch Emballage BRUN", description:"Spécialement conçu pour fermer les cartons lourds.", image:"https://i.ibb.co/Z1vY2chP/19.png", yard:true, yardOptions:["50","80","100","200","300","500","1000","1200"] },
+  { id:"p6", name:"Scotch Emballage CLAIR", description:"Ruban d'emballage haute transparence et forte adhérence.", image:"https://i.ibb.co/KxFK562m/7.png", yard:true, yardOptions:["50","80","100","200","300","500","1000","1200"] },
+  { id:"p7", name:"Scotch Emballage BLANC", description:"Ruban d'emballage haute transparence et forte adhérence.", image:"https://i.ibb.co/27TVYJWF/13.png", yard:true, yardOptions:["50","80","100","200","300","500","1000","1200"] },
+  { id:"p8", name:"Film étirable", description:"Film étirable disponible sur commande en bobines de 1kg à 50kg. Adapté à l'usage manuel ou machine.", image:"https://i.ibb.co/XxDfFF4b/16.png", yard:false,
+    colors:[
+      { name:"Transparent", hex:"#e0e0e0", img:"https://i.ibb.co/XxDfFF4b/16.png" },
+      { name:"Noir", hex:"#222", img:"https://i.ibb.co/XxDfFF4b/16.png" },
+      { name:"Bleu", hex:"#0055ff", img:"https://i.ibb.co/XxDfFF4b/16.png" }
+    ]
+  },
+  { id:"p9", name:"Film thermorétractable", description:"Se moule à vos produits par la chaleur pour une protection solide et une finition professionnelle.", image:"https://i.ibb.co/PsKfMXFb/17.png", yard:false },
+  { id:"p10", name:"Sac Personaliser", description:"Sac plastique sur mesure à votre image. Votre logo, vos couleurs, votre format.", image:"https://i.ibb.co/bgP94r2V/18.png", yard:false },
+];
+
+// RENDER PRODUCTS
+const container = document.getElementById("products-container");
+const selectedColor = {};
+const selectedYard = {};
+
+products.forEach(p => {
+  let colorHTML = '';
+  if(p.colors && p.colors.length){
+    selectedColor[p.id] = p.colors[0].name;
+    colorHTML = `<div class="color-selection">` + 
+      p.colors.map((c, index) => `
+        <div class="color-dot ${index===0?'active':''}" style="background:${c.hex}" onclick="selectColor('${p.id}','${c.name}','${c.img}', this)"></div>
+      `).join('') + `</div>`;
+  }
+
+  let yardHTML = '';
+  if(p.yard && p.yardOptions && p.yardOptions.length){
+    selectedYard[p.id] = p.yardOptions[0];
+    yardHTML = `<select class="yard-select" onchange="selectYard('${p.id}', this.value)">` +
+      p.yardOptions.map(y => `<option value="${y}">${y} Yards</option>`).join('') +
+      `</select>`;
+  }
+
+  container.innerHTML += `
+    <div class="product-card">
+      <img src="${p.image}" alt="${p.name}" id="img-${p.id}">
+      <h2 class="product-title">${p.name}</h2>
+      <p class="product-desc">${p.description}</p>
+      ${colorHTML}
+      ${yardHTML}
+      <div class="price">Min commande : 10 cartons</div>
+      <button class="buy-btn" onclick="addToCart('${p.id}')">Ajouter au panier</button>
+    </div>
+  `;
+});
+
+function selectColor(pid, name, img, el){
+  selectedColor[pid] = name;
+  const imgEl = document.getElementById('img-'+pid);
+  if(imgEl) imgEl.src = img;
+  el.parentElement.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+  el.classList.add('active');
+}
+function selectYard(pid, val){ selectedYard[pid] = val; }
+
+// FAQ Accordion
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const panel = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    
+    // Fermer tous les autres panneaux ouverts
+    document.querySelectorAll('.faq-q[aria-expanded="true"]').forEach(openBtn => {
+        if (openBtn !== btn) {
+            openBtn.setAttribute('aria-expanded', 'false');
+            openBtn.nextElementSibling.style.maxHeight = null;
+        }
+    });
+
+    // Ouvrir/fermer le panneau cliqué
+    btn.setAttribute('aria-expanded', !expanded);
+    panel.style.maxHeight = expanded ? null : panel.scrollHeight + 'px';
+  });
+});
+
+// Animations
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.product-card, .company-container').forEach(el => obs.observe(el));
+
+// Menu Logic
+function toggleMenu() {
+  const m = document.getElementById('menu');
+  m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
+}
+
+// Cart Logic
+let cart = JSON.parse(localStorage.getItem('rock_cart') || '[]');
+cart = cart.map(item => {
+  if(!item.key){
+    const color = item.color || item.selectedColor || null;
+    const yard = item.yard || item.selectedYard || null;
+    return {...item, color, yard, key: `${item.id}|${color||''}|${yard||''}`};
+  }
+  return item;
+});
+
+function updateBadge() {
+  const b = document.getElementById('cart-badge');
+  const count = cart.reduce((s, i) => s + i.qty, 0);
+  b.textContent = count;
+  b.style.display = count > 0 ? 'inline-block' : 'none';
+}
+
+function addToCart(id) {
+  const p = products.find(i => i.id === id);
+  const color = selectedColor[id] || null;
+  const yard = selectedYard[id] || null;
+  const key = `${id}|${color||''}|${yard||''}`;
+
+  const found = cart.find(i => i.key === key);
+  if(found) found.qty++;
+  else cart.push({...p, qty: 1, key, color, yard});
+
+  saveCart();
+  renderDrawer();
+  openDrawer();
+}
+
+function saveCart() {
+    localStorage.setItem('rock_cart', JSON.stringify(cart));
+    updateBadge();
+}
+
+function openDrawer() {
+  document.getElementById('drawer-overlay').style.display = 'block';
+  document.getElementById('cart-drawer').classList.add('open');
+}
+
+function closeDrawer() {
+  document.getElementById('drawer-overlay').style.display = 'none';
+  document.getElementById('cart-drawer').classList.remove('open');
+}
+
+function renderDrawer() {
+  const content = document.getElementById('drawer-content');
+  if(cart.length === 0) {
+    content.innerHTML = '<p style="text-align:center; padding:20px;">Votre panier est vide.</p>';
+    return;
+  }
+  content.innerHTML = cart.map(item => {
+    let opt = '';
+    if(item.color) opt += `Couleur: ${item.color}`;
+    if(item.yard) opt += (opt ? ' | ' : '') + `Yard: ${item.yard}`;
+    return `
+    <div class="cart-item">
+      <img src="${item.image}">
+      <div class="item-info">
+        <div class="item-name">${item.name}</div>
+        ${opt ? `<div style="font-size:11px;color:#007bff;margin-top:2px;">${opt}</div>` : ''}
+        <div style="margin-top:5px;">
+            Qté: <input class="qty-input" type="number" min="1" value="${item.qty}" onchange="updateQty('${item.key}', this.value)">
+            <button class="remove-btn" onclick="removeItem('${item.key}')">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  `;
+  }).join('');
+}
+
+function updateQty(key, v) {
+    const item = cart.find(i => i.key === key);
+    if(item) item.qty = parseInt(v) || 1;
+    saveCart();
+}
+
+function removeItem(key) {
+    cart = cart.filter(i => i.key !== key);
+    saveCart();
+    renderDrawer();
+}
+
+document.getElementById('drawer-overlay').onclick = closeDrawer;
+updateBadge();
+renderDrawer();
+</script>
+
+</body>
+</html>
