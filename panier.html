@@ -94,9 +94,9 @@
   .contacts-card{background:#fff;border:1px solid #eee;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,0.08);padding:24px}
   .contacts-card a{color:#007bff;text-decoration:none;font-weight:700}
   .social-links{margin-top:14px;display:flex;gap:10px;justify-content:center}
-  .social-links a{width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;text-decoration:none}
-  .social-links a img{width:24px;height:24px;display:block}
-  .social-links a.fb{background:#1877f2}
+  .social-links a{width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+  .social-links a img{width:26px;height:26px;display:block}
+  .social-links a.fb{background:transparent}
 
   footer{background:#333;color:#fff;text-align:center;padding:20px;margin-top:40px}
 </style>
@@ -160,6 +160,10 @@
           <input name="nom" required>
         </div>
         <div class="field">
+          <label>Wilaya (Algérie)</label>
+          <select name="wilaya" id="wilaya" required></select>
+        </div>
+        <div class="field">
           <label>Adresse</label>
           <input name="adresse" required>
         </div>
@@ -178,10 +182,6 @@
         <div class="field">
           <label>Email</label>
           <input name="email" type="email" required>
-        </div>
-        <div class="field">
-          <label>Wilaya (Algérie)</label>
-          <select name="wilaya" id="wilaya" required></select>
         </div>
       </div>
 
@@ -210,7 +210,7 @@
     <p><a href="mailto:Barapack.dz@gmail.com">Barapack.dz@gmail.com</a></p>
     <div class="social-links">
       <a class="fb" href="https://www.facebook.com/bara.pack.2025" target="_blank" rel="noopener">
-        <img src="https://cdn.simpleicons.org/facebook/ffffff" alt="Facebook">
+        <img src="https://cdn.simpleicons.org/facebook/1877f2" alt="Facebook">
       </a>
     </div>
   </div>
