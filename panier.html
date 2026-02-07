@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bara Pack | Panier</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --primary:#007bff;
+    --primary2:#00d4ff;
+    --bg:#f9fbff;
+    --text:#222;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Tahoma",sans-serif;background:var(--bg);color:var(--text)}
+  a{text-decoration:none}
+
+  /* Header */
+  header{
+    background:#fff;border-bottom:1px solid #eee;padding:15px 20px;
+    display:flex;align-items:center;justify-content:center;position:relative;z-index:1000;
+  }
+  header .logo{display:flex;align-items:center;justify-content:center}
+  header .logo img{height:120px;display:block}
+  .menu-toggle{position:absolute;left:20px;top:50%;transform:translateY(-50%);font-size:26px;cursor:pointer;color:#000}
+  .header-cart{position:absolute;right:20px;top:50%;transform:translateY(-50%);cursor:pointer;display:flex;align-items:center}
+  .cart-icon-svg{width:28px;height:28px;fill:none;stroke:#000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .cart-badge{position:absolute;top:-5px;right:-8px;background:#ff4136;color:#fff;border-radius:50%;padding:2px 6px;font-size:11px;font-weight:bold;min-width:14px;text-align:center}
+  nav{
+    display:none;position:absolute;top:100%;left:0;background:#fff;box-shadow:0 4px 6px rgba(0,0,0,0.2);
+    width:240px;flex-direction:column;
+  }
+  nav a{padding:12px;color:#000;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between}
+  nav a:hover{background:#f5f5f5}
+
+  .section-title{
+    font-family:'Montserrat',sans-serif;font-size:32px;font-weight:700;color:#000;text-align:center;margin:50px 0 20px;
+  }
+
+  /* Cart */
+  .container{max-width:1200px;margin:0 auto;padding:0 20px}
+  .cart-note{text-align:center;color:#444;margin-bottom:25px}
+  .cart-layout{display:grid;grid-template-columns:1fr 320px;gap:24px}
+  @media (max-width: 900px){.cart-layout{grid-template-columns:1fr}}
+  .cart-list,.cart-summary{
+    background:#fff;border-radius:18px;box-shadow:0 12px 30px rgba(0,0,0,0.08);padding:20px;
+  }
+  .cart-item{display:flex;gap:14px;align-items:center;border-bottom:1px solid #f0f0f0;padding:12px 0}
+  .cart-item:last-child{border-bottom:none}
+  .cart-item img{width:70px;height:70px;object-fit:cover;border-radius:10px}
+  .item-info{flex:1}
+  .item-name{font-weight:700;font-size:15px}
+  .item-opts{font-size:12px;color:#007bff;margin-top:4px}
+  .qty-row{display:flex;align-items:center;gap:8px;margin-top:8px}
+  .qty-input{width:70px;padding:6px;border:1px solid #ccc;border-radius:8px}
+  .remove-btn{background:#ffe9e9;color:#d63031;border:none;padding:6px 10px;border-radius:8px;cursor:pointer}
+  .summary-line{display:flex;justify-content:space-between;margin:8px 0;font-weight:700}
+  .min-message{margin-top:10px;padding:10px;border-radius:10px;font-size:13px}
+  .min-ok{background:#e8fff1;color:#1b8f4d}
+  .min-bad{background:#fff1f1;color:#c0392b}
+  .secondary-btn{
+    margin-top:10px;width:100%;padding:10px;border:1px solid #ddd;background:#fafafa;border-radius:10px;cursor:pointer
+  }
+
+  /* Form */
+  .order-section{margin-top:40px}
+  form{
+    background:#fff;border-radius:18px;box-shadow:0 12px 30px rgba(0,0,0,0.08);padding:24px;
+  }
+  .form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  @media (max-width: 700px){.form-grid{grid-template-columns:1fr}}
+  .field label{display:block;font-weight:700;margin-bottom:6px}
+  .field input,.field select,.field textarea{
+    width:100%;padding:10px;border:1px solid #ddd;border-radius:10px;font-family:inherit
+  }
+  .personalisation-section{
+    margin:16px 0;padding:14px;border:1px dashed #cfe3ff;border-radius:12px;background:#f7fbff
+  }
+  .personalisation-section h4{margin:0 0 10px 0}
+  .checkout-btn{
+    width:100%;padding:12px;background:linear-gradient(135deg,var(--primary),var(--primary2));
+    color:#fff;border:none;border-radius:10px;font-weight:700;cursor:pointer;margin-top:10px
+  }
+  .form-alert{margin:10px 0;font-size:13px}
+  .form-alert.error{color:#c0392b}
+  .form-alert.success{color:#1b8f4d}
+  .form-note{text-align:center;font-size:12px;color:#555;margin-top:8px}
+
+  /* Contacts + Footer */
+  .contacts-section{max-width:900px;margin:60px auto 20px;padding:10px 20px;text-align:center}
+  .contacts-card{background:#fff;border:1px solid #eee;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,0.08);padding:24px}
+  .contacts-card a{color:#007bff;text-decoration:none;font-weight:700}
+  .social-links{margin-top:14px;display:flex;gap:10px;justify-content:center}
+  .social-links a{width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;text-decoration:none}
+  .social-links a img{width:24px;height:24px;display:block}
+  .social-links a.fb{background:#1877f2}
+
+  footer{background:#333;color:#fff;text-align:center;padding:20px;margin-top:40px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <div class="logo">
+    <a href="index.html"><img src="https://i.ibb.co/bjdp7pTj/Gemini-Generated-Image-gbpy4egbpy4egbpy-1.png" alt="Logo Bara pack"/></a>
+  </div>
+  <div class="header-cart" onclick="location.href='#panier'">
+    <svg class="cart-icon-svg" viewBox="0 0 24 24">
+      <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6z"></path>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <path d="M16 10a4 4 0 01-8 0"></path>
+    </svg>
+    <span id="cart-badge" class="cart-badge" style="display:none;">0</span>
+  </div>
+  <nav id="menu">
+    <a href="index.html#apropos">À propos</a>
+    <a href="index.html#produits">Produits</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#contacts">Contact</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <section id="panier">
+    <h2 class="section-title">Votre panier</h2>
+    <p class="cart-note">Chaque quantité = 1 carton. Minimum requis : 10 cartons pour valider la commande.</p>
+    <div class="cart-layout">
+      <div class="cart-list" id="cart-list"></div>
+      <aside class="cart-summary">
+        <h3 style="margin-top:0">Résumé</h3>
+        <div class="summary-line"><span>Articles</span><span id="total-items">0</span></div>
+        <div class="summary-line"><span>Cartons</span><span id="total-cartons">0</span></div>
+        <div id="min-message" class="min-message min-bad">Ajoutez des cartons pour atteindre le minimum.</div>
+        <button class="secondary-btn" id="clear-cart" type="button">Vider le panier</button>
+      </aside>
+    </div>
+  </section>
+
+  <section id="commande" class="order-section">
+    <h2 class="section-title">Finaliser la commande</h2>
+    <form id="order-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="VOTRE_ACCESS_KEY">
+      <input type="hidden" name="subject" value="Nouvelle commande - Bara Pack">
+      <input type="hidden" name="from_name" value="Bara Pack - Panier">
+      <input type="hidden" name="cartons_total" id="cartons_total_input">
+      <input type="hidden" name="panier_detail" id="panier_detail_input">
+
+      <div class="form-grid">
+        <div class="field">
+          <label>Prénom</label>
+          <input name="prenom" required>
+        </div>
+        <div class="field">
+          <label>Nom</label>
+          <input name="nom" required>
+        </div>
+        <div class="field">
+          <label>Adresse</label>
+          <input name="adresse" required>
+        </div>
+        <div class="field">
+          <label>Pays</label>
+          <select name="pays" id="country" required></select>
+        </div>
+        <div class="field">
+          <label>Indicatif téléphonique</label>
+          <select name="indicatif" id="country-code" required></select>
+        </div>
+        <div class="field">
+          <label>Numéro de téléphone</label>
+          <input name="telephone" type="tel" required placeholder="Ex: 0550 00 00 00">
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input name="email" type="email" required>
+        </div>
+        <div class="field">
+          <label>Wilaya (Algérie)</label>
+          <select name="wilaya" id="wilaya" required></select>
+        </div>
+      </div>
+
+      <div id="personalisation-section" class="personalisation-section" style="display:none"></div>
+
+      <div class="field">
+        <label>Commentaire</label>
+        <textarea name="commentaire" rows="4" placeholder="Détails de livraison, horaires, instructions..."></textarea>
+      </div>
+
+      <div id="form-alert" class="form-alert"></div>
+      <button id="submit-btn" type="submit" class="checkout-btn">Envoyer la commande</button>
+      <p class="form-note">En envoyant ce formulaire, vous confirmez que chaque quantité correspond à 1 carton.</p>
+    </form>
+  </section>
+
+</main>
+
+<section id="contacts" class="contacts-section">
+  <h2 class="section-title">Contactez-nous</h2>
+  <div class="contacts-card">
+    <h3>Service Commercial</h3>
+    <p><a href="tel:+213549491811">+213 549 49 18 11</a></p>
+    <p><a href="tel:+213778251088">+213 778 25 10 88</a></p>
+    <h3>Email</h3>
+    <p><a href="mailto:Barapack.dz@gmail.com">Barapack.dz@gmail.com</a></p>
+    <div class="social-links">
+      <a class="fb" href="https://www.facebook.com/bara.pack.2025" target="_blank" rel="noopener">
+        <img src="https://cdn.simpleicons.org/facebook/ffffff" alt="Facebook">
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© Tous droits réservés. Bara Pack - 2026</p>
+  <p>Powered By SITEMAGIQUE</p>
+</footer>
+
+<script>
+/* Produits (images copiées) */
+const products = [
+  { id:"p1", name:"scotch Personalisé Fond Trensparent", image:"https://i.ibb.co/Q3nTqJMc/11.png" },
+  { id:"p2", name:"scotch Personalisé Fond Blanc", image:"https://i.ibb.co/0pFjVWdX/12.png" },
+  { id:"p3", name:"Papier Collant Jaune 16m / 44mm", image:"https://i.ibb.co/N6GhTtbL/9.png" },
+  { id:"p4", name:"Papier Collant Blanc 16m / 44mm", image:"https://i.ibb.co/LzrKpNj9/10.png" },
+  { id:"p5", name:"Scotch Emballage BRUN", image:"https://i.ibb.co/Z1vY2chP/19.png" },
+  { id:"p6", name:"Scotch Emballage CLAIR", image:"https://i.ibb.co/KxFK562m/7.png" },
+  { id:"p7", name:"Scotch Emballage BLANC", image:"https://i.ibb.co/27TVYJWF/13.png" },
+  { id:"p8", name:"Film étirable", image:"https://i.ibb.co/XxDfFF4b/16.png" },
+  { id:"p9", name:"Film thermorétractable", image:"https://i.ibb.co/PsKfMXFb/17.png" },
+  { id:"p10", name:"Sac Personaliser", image:"https://i.ibb.co/bgP94r2V/18.png" }
+];
+
+const personalizedIds = new Set(["p1","p2","p10"]);
+
+const cartList = document.getElementById("cart-list");
+const totalItemsEl = document.getElementById("total-items");
+const totalCartonsEl = document.getElementById("total-cartons");
+const minMessageEl = document.getElementById("min-message");
+const badgeEl = document.getElementById("cart-badge");
+const formAlert = document.getElementById("form-alert");
+const personalisationSection = document.getElementById("personalisation-section");
+
+let cart = JSON.parse(localStorage.getItem('rock_cart') || '[]');
+cart = cart.map(item => {
+  if(!item.key){
+    const color = item.color || item.selectedColor || null;
+    const yard = item.yard || item.selectedYard || null;
+    return {...item, color, yard, key: `${item.id}|${color||''}|${yard||''}`};
+  }
+  return item;
+});
+
+function toggleMenu(){
+  const m = document.getElementById('menu');
+  m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
+}
+
+function updateBadge(){
+  const count = cart.reduce((s,i)=>s+i.qty,0);
+  badgeEl.textContent = count;
+  badgeEl.style.display = count>0 ? 'inline-block' : 'none';
+}
+
+function renderCart(){
+  if(cart.length === 0){
+    cartList.innerHTML = '<p style="text-align:center;padding:30px">Votre panier est vide.</p>';
+    updateSummary();
+    renderPersonalisation();
+    return;
+  }
+  cartList.innerHTML = cart.map(item => {
+    const p = products.find(x=>x.id===item.id);
+    const img = item.image || (p ? p.image : '');
+    let opt = '';
+    if(item.color) opt += `Couleur: ${item.color}`;
+    if(item.yard) opt += (opt ? ' | ' : '') + `Yard: ${item.yard}`;
+    return `
+      <div class="cart-item">
+        <img src="${img}" alt="${item.name}">
+        <div class="item-info">
+          <div class="item-name">${item.name}</div>
+          ${opt ? `<div class="item-opts">${opt}</div>` : ''}
+          <div class="qty-row">
+            Qté: <input class="qty-input" type="number" min="1" value="${item.qty}" onchange="updateQty('${item.key}', this.value)">
+            <button class="remove-btn" onclick="removeItem('${item.key}')">Supprimer</button>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+  updateSummary();
+  renderPersonalisation();
+}
+
+function updateSummary(){
+  const totalItems = cart.reduce((s,i)=>s+i.qty,0);
+  totalItemsEl.textContent = totalItems;
+  totalCartonsEl.textContent = totalItems;
+
+  document.getElementById("cartons_total_input").value = totalItems;
+
+  const detail = cart.map(i=>{
+    let opt = '';
+    if(i.color) opt += `Couleur: ${i.color}`;
+    if(i.yard) opt += (opt ? ' | ' : '') + `Yard: ${i.yard}`;
+    return `${i.name} (${opt || 'standard'}) x${i.qty}`;
+  }).join(' || ');
+  document.getElementById("panier_detail_input").value = detail;
+
+  if(totalItems >= 10){
+    minMessageEl.textContent = "Minimum atteint. Vous pouvez valider la commande.";
+    minMessageEl.className = "min-message min-ok";
+  }else{
+    minMessageEl.textContent = "Minimum non atteint. Ajoutez des cartons pour arriver à 10.";
+    minMessageEl.className = "min-message min-bad";
+  }
+  updateBadge();
+}
+
+function updateQty(key, v){
+  const item = cart.find(i=>i.key===key);
+  if(item){ item.qty = Math.max(1, parseInt(v) || 1); }
+  saveCart();
+  renderCart();
+}
+function removeItem(key){
+  cart = cart.filter(i=>i.key!==key);
+  saveCart();
+  renderCart();
+}
+function saveCart(){
+  localStorage.setItem('rock_cart', JSON.stringify(cart));
+}
+
+document.getElementById("clear-cart").onclick = () => {
+  cart = [];
+  saveCart();
+  renderCart();
+};
+
+function renderPersonalisation(){
+  const personalizedItems = cart.filter(i => personalizedIds.has(i.id) || /personalis/i.test(i.name));
+  if(personalizedItems.length === 0){
+    personalisationSection.style.display = "none";
+    personalisationSection.innerHTML = "";
+    return;
+  }
+  personalisationSection.style.display = "block";
+  personalisationSection.innerHTML = `
+    <h4>Détails de personnalisation</h4>
+    <p style="margin-top:0;font-size:13px;color:#555">Merci d’indiquer le texte ou les instructions pour chaque produit personnalisé.</p>
+    ${personalizedItems.map(i => `
+      <div class="field" style="margin-top:10px">
+        <label>${i.name}</label>
+        <input name="personnalisation_${i.key}" required placeholder="Ex: Logo + slogan, couleur, dimensions...">
+      </div>
+    `).join('')}
+  `;
+}
+
+document.getElementById("order-form").addEventListener("submit", function(e){
+  const total = cart.reduce((s,i)=>s+i.qty,0);
+  if(total < 10){
+    e.preventDefault();
+    formAlert.textContent = "Erreur : minimum 10 cartons requis pour valider la commande.";
+    formAlert.className = "form-alert error";
+  }else{
+    formAlert.textContent = "Commande prête à être envoyée.";
+    formAlert.className = "form-alert success";
+  }
+});
+
+/* Pays + indicatifs de tous les pays (chargement automatique) */
+const countrySelect = document.getElementById("country");
+const codeSelect = document.getElementById("country-code");
+
+async function loadCountries(){
+  try{
+    const res = await fetch("https://restcountries.com/v3.1/all");
+    const data = await res.json();
+    const list = data.map(c=>{
+      const name = c.translations && c.translations.fra ? c.translations.fra.common : c.name.common;
+      const root = c.idd && c.idd.root ? c.idd.root : "";
+      const suffix = c.idd && c.idd.suffixes ? c.idd.suffixes[0] : "";
+      const code = (root + suffix).replace(/\s/g,"");
+      return {name, code};
+    }).sort((a,b)=>a.name.localeCompare(b.name,"fr"));
+    countrySelect.innerHTML = list.map(c=>`<option value="${c.name}">${c.name}</option>`).join("");
+    codeSelect.innerHTML = list.map(c=>`<option value="${c.code || ''}">${c.code ? c.code : '—'} (${c.name})</option>`).join("");
+
+    const algIndex = list.findIndex(c=>/Algérie/i.test(c.name));
+    if(algIndex >= 0){
+      countrySelect.selectedIndex = algIndex;
+      codeSelect.selectedIndex = algIndex;
+    }
+  }catch(err){
+    countrySelect.innerHTML = `<option value="Algérie">Algérie</option>`;
+    codeSelect.innerHTML = `<option value="+213">+213 (Algérie)</option>`;
+  }
+}
+loadCountries();
+
+/* Wilayas d’Algérie */
+const wilayas = [
+ "01 Adrar","02 Chlef","03 Laghouat","04 Oum El Bouaghi","05 Batna","06 Béjaïa","07 Biskra","08 Béchar",
+ "09 Blida","10 Bouira","11 Tamanrasset","12 Tébessa","13 Tlemcen","14 Tiaret","15 Tizi Ouzou","16 Alger",
+ "17 Djelfa","18 Jijel","19 Sétif","20 Saïda","21 Skikda","22 Sidi Bel Abbès","23 Annaba","24 Guelma",
+ "25 Constantine","26 Médéa","27 Mostaganem","28 M'Sila","29 Mascara","30 Ouargla","31 Oran","32 El Bayadh",
+ "33 Illizi","34 Bordj Bou Arréridj","35 Boumerdès","36 El Tarf","37 Tindouf","38 Tissemsilt","39 El Oued",
+ "40 Khenchela","41 Souk Ahras","42 Tipaza","43 Mila","44 Aïn Defla","45 Naâma","46 Aïn Témouchent",
+ "47 Ghardaïa","48 Relizane","49 Timimoun","50 Bordj Badji Mokhtar","51 Ouled Djellal","52 Béni Abbès",
+ "53 In Salah","54 In Guezzam","55 Touggourt","56 Djanet","57 El M'Ghair","58 El Meniaa"
+];
+document.getElementById("wilaya").innerHTML = wilayas.map(w=>`<option value="${w}">${w}</option>`).join("");
+
+/* Init */
+renderCart();
+</script>
+
+</body>
+</html>
