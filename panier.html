@@ -149,6 +149,7 @@
       <input type="hidden" name="access_key" value="7d7e08ef-54c4-46af-bbbf-fda075adddb2">
       <input type="hidden" name="subject" value="Nouvelle commande - Bara Pack">
       <input type="hidden" name="from_name" value="Bara Pack - Panier">
+      <input type="hidden" name="redirect" value="https://bara-pack.com/index.html">
       <input type="hidden" name="cartons_total" id="cartons_total_input">
       <input type="hidden" name="panier_detail" id="panier_detail_input">
 
@@ -373,7 +374,9 @@ document.getElementById("order-form").addEventListener("submit", function(e){
     formAlert.textContent = "Erreur : minimum 10 cartons requis pour valider la commande.";
     formAlert.className = "form-alert error";
   }else{
-    formAlert.textContent = "Commande prête à être envoyée.";
+    // Vider le panier local avant l'envoi vers Web3Forms
+    localStorage.removeItem('rock_cart');
+    formAlert.textContent = "Commande en cours d'envoi...";
     formAlert.className = "form-alert success";
   }
 });
