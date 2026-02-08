@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bara Pack : Contact et présentation. Leader de l'emballage en Algérie.">
+<title>Bara Pack — Contact</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="logo%20bara%20pack.png">
+
+<style>
+body {margin:0;font-family:"Tahoma",sans-serif;background:#f9fbff;color:#222; direction:ltr;}
+* {box-sizing:border-box;}
+
+/* Header */
+header {
+  background:#fff;border-bottom:1px solid #eee;padding:15px 20px;
+  display:flex;align-items:center;justify-content:center;position:relative;z-index:1000;
+}
+header .logo {text-align:center;display:flex;align-items:center;justify-content:center;}
+header .logo img {height:120px;display:block;}
+.menu-toggle {
+  position:absolute;left:20px;top:50%;transform:translateY(-50%);
+  font-size:26px;cursor:pointer;color:#000;
+}
+.header-cart {
+  position:absolute;right:20px;top:50%;transform:translateY(-50%);
+  cursor:pointer;display:flex;align-items:center;
+}
+.cart-icon-svg {width:28px;height:28px;fill:none;stroke:#000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.cart-badge {
+  position:absolute;top:-5px;right:-8px;background:#ff4136;color:#fff;border-radius:50%;
+  padding:2px 6px;font-size:11px;font-weight:bold;min-width:14px;text-align:center;
+}
+nav {
+  display:none;position:absolute;top:100%;left:0;background:#fff;box-shadow:0 4px 6px rgba(0,0,0,0.2);
+  width:240px;flex-direction:column;
+}
+nav a {padding:12px;color:#000;text-decoration:none;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;}
+nav a:hover {background:#f5f5f5;}
+
+/* Hero */
+.page-hero {
+  position:relative;width:100%;height:45vh;min-height:260px;display:flex;align-items:center;overflow:hidden;
+  background:url('https://i.ibb.co/PvbjhkVs/Design-sans-titre-8.png');
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+}
+.page-hero-content {
+  position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:0 6%;color:#fff;
+}
+.page-hero h1 {
+  font-family:'Montserrat',sans-serif;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:0 0 10px 0;
+}
+
+/* Section title */
+.section-title {
+  font-family:'Montserrat',sans-serif;font-size:34px;font-weight:700;color:#000;
+  text-align:center;margin:60px 0 20px;
+}
+
+/* Présentation longue */
+.about-long {
+  max-width:1000px;margin:30px auto 40px;padding:0 20px;font-family:'Roboto',sans-serif;
+  line-height:1.85;color:#2a2a2a;
+}
+.about-card {
+  background:#fff;border-radius:22px;box-shadow:0 20px 50px rgba(0,0,0,0.08);
+  padding:32px;
+}
+.about-card h2 {
+  font-family:'Montserrat',sans-serif;font-size:28px;margin-top:0;color:#000;
+}
+.about-card p {margin:14px 0;font-size:17px;}
+.about-highlight {
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:26px;
+}
+.about-box {
+  background:#f5f9ff;border:1px solid #e2edff;border-radius:14px;padding:16px;
+}
+.about-box h3 {margin:0 0 6px 0;font-size:16px;color:#0066cc;font-weight:700;}
+.about-box p {margin:0;font-size:14.5px;color:#334;line-height:1.6;}
+
+/* Slider Photos */
+.photo-slider {
+  max-width:1000px;margin:0 auto 70px;padding:0 20px;
+}
+.slider-card {
+  background:#fff;border-radius:22px;box-shadow:0 20px 50px rgba(0,0,0,0.08);
+  padding:20px; position:relative; overflow:hidden;
+}
+.slider-title {
+  font-family:'Montserrat',sans-serif;font-size:22px;margin:0 0 16px 0;color:#000;
+}
+.slider-viewport {
+  overflow:hidden;border-radius:16px;
+  position:relative;
+  /* La hauteur sera définie en JS pour correspondre à l'image courante */
+}
+.slider-track {
+  display:flex;transition:transform .4s ease; touch-action:pan-y;
+}
+.slide {
+  min-width:100%; position:relative; display:flex; justify-content:center; align-items:center;
+}
+.slide img {
+  display:block;
+  width:auto;              /* pour respecter le format portrait */
+  max-width:100%;          /* ne pas dépasser la largeur du conteneur */
+  height:auto;             /* hauteur auto = pas de crop */
+  max-height:80vh;         /* sécurité pour très grandes images */
+  object-fit:contain;      /* ne jamais recadrer l’image */
+}
+
+/* Boutons au-dessus des images */
+.slider-btn {
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:44px; height:44px; border-radius:50%; border:none; cursor:pointer;
+  background:rgba(0,0,0,0.65); color:#fff; font-size:22px;
+  display:flex; align-items:center; justify-content:center;
+  z-index:10;                /* toujours au-dessus des images */
+  box-shadow:0 4px 10px rgba(0,0,0,0.25);
+}
+.slider-btn.left {left:12px;}
+.slider-btn.right {right:12px;}
+.slider-btn:focus {outline:2px solid #fff8; outline-offset:2px;}
+
+.slider-dots {
+  display:flex; gap:8px; justify-content:center; margin-top:12px;
+}
+.dot {
+  width:8px;height:8px;border-radius:50%;background:#cfd8e3;transition:.2s;
+}
+.dot.active {background:#007bff; transform:scale(1.2);}
+
+/* FAQ */
+#faq {max-width:900px;margin:30px auto 60px; padding:0 20px;}
+.faq-accordion {direction:ltr;color:#000;}
+.faq-q {
+  width:100%;text-align:left;background:#fff;color:#000;border:1px solid #ddd;border-radius:12px;
+  padding:16px 20px;cursor:pointer;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;
+}
+.faq-q .icon {margin-left:10px;font-size:20px;line-height:1;transition:transform 0.3s ease;}
+.faq-q[aria-expanded="true"] .icon {transform: rotate(45deg);}
+.faq-a {max-height:0;overflow:hidden;transition:max-height .3s ease-out;background:#fafafa;border:1px solid #eee;border-top:none;border-radius:0 0 12px 12px;padding:0 20px;color:#333;}
+.faq-a p {margin:0;padding:16px 0;line-height:1.6;color:#333;}
+
+/* Contacts */
+.contacts-section {max-width:900px;margin:0 auto 20px;padding:10px 20px;text-align:center;}
+.contacts-card {background:#fff;border:1px solid #eee;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,0.08);padding:24px;}
+.contacts-card a {color:#007bff;text-decoration:none;font-weight:700;}
+.social-links {margin-top:14px; display:flex; gap:10px; justify-content:center;}
+.social-links a {width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;}
+.social-links a img {width:24px;height:24px;display:block;}
+.social-links a.fb {background:#1877f2;}
+.social-links a.fb img {filter: brightness(0) invert(1);} /* FIX icône blanche */
+
+/* Footer */
+footer {background:#333;color:#fff;text-align:center;padding:20px;margin-top:40px;}
+
+/* CART DRAWER */
+.drawer-overlay {position:fixed; inset:0; background:rgba(0,0,0,0.35); display:none; z-index:2000;}
+.drawer {
+  position:fixed; top:0; right:0; width:360px; max-width:88vw; height:100vh; background:#fff; box-shadow:-8px 0 20px rgba(0,0,0,0.2);
+  transform:translateX(100%); transition:transform .3s ease; z-index:2100; display:flex; flex-direction:column;
+}
+.drawer.open {transform:translateX(0);}
+.drawer-header {padding:16px; border-bottom:1px solid #eee; display:flex; align-items:center; justify-content:space-between;}
+.drawer-title {font-weight:800; font-family:'Montserrat',sans-serif;}
+.drawer-content {padding:12px; overflow:auto; flex:1;}
+.cart-item {display:flex; gap:10px; align-items:center; border-bottom:1px solid #f0f0f0; padding:10px 0;}
+.cart-item img {width:60px; height:60px; object-fit:cover; border-radius:6px;}
+.item-info {flex:1;}
+.item-name {font-weight:700; font-size:14px;}
+.qty-input {width:60px; padding:6px; border:1px solid #ccc; border-radius:6px;}
+.remove-btn {background:#ffe9e9; color:#d63031; border:none; padding:6px 10px; border-radius:6px; cursor:pointer;}
+.drawer-footer {padding:14px; border-top:1px solid #eee;}
+.checkout-btn {width:100%; padding:12px; background:linear-gradient(135deg,#007bff,#00d4ff); color:#fff; border:none; border-radius:8px; font-weight:700; cursor:pointer; text-decoration:none; display:inline-block; text-align:center;}
+
+/* Mobile */
+@media (max-width:768px){
+  .page-hero {height:35vh;min-height:220px;}
+  .slider-btn {width:40px;height:40px;font-size:20px;}
+  .slide img {max-height:70vh;}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <div class="logo">
+    <a href="index.html"><img src="https://i.ibb.co/bjdp7pTj/Gemini-Generated-Image-gbpy4egbpy4egbpy-1.png" alt="Logo Bara pack" /></a>
+  </div>
+  <div class="header-cart" onclick="openDrawer()">
+    <svg class="cart-icon-svg" viewBox="0 0 24 24">
+      <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6z"></path>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <path d="M16 10a4 4 0 01-8 0"></path>
+    </svg>
+    <span id="cart-badge" class="cart-badge" style="display:none;">0</span>
+  </div>
+
+  <nav id="menu">
+    <a href="index.html#apropos">À propos</a>
+    <a href="index.html#produits">Produits</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contacts">Contact</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="page-hero">
+  <div class="page-hero-content">
+    <h1>À propos de nous</h1>
+  </div>
+</section>
+
+<!-- Présentation longue -->
+<section>
+  <h2 class="section-title">Présentation de l’entreprise</h2>
+  <div class="about-long">
+    <div class="about-card">
+      <h2>Bara Pack, l’exigence au service de votre logistique</h2>
+      <p>
+        Fondée en <strong>2024</strong>, <strong>Bara Pack</strong> s’est imposée comme un acteur majeur de l’emballage en Algérie.
+        Notre mission est simple : sécuriser vos expéditions avec des produits performants et une qualité constante, tout en valorisant
+        l’image de votre entreprise.
+      </p>
+      <p>
+        Nous fabriquons et distribuons une gamme complète : rubans adhésifs (transparent, brun, imprimé, papier), films étirables, films
+        thermorétractables, sachets et solutions sur mesure. Chaque produit est conçu pour répondre aux réalités du terrain : résistance,
+        fiabilité, facilité d’utilisation et résultat professionnel.
+      </p>
+      <p>
+        Notre force réside dans notre capacité à accompagner des clients de toutes tailles, du commerce local aux grands comptes, avec des
+        délais maîtrisés, une écoute active et des solutions adaptées aux besoins spécifiques. La personnalisation (logos, couleurs, formats)
+        fait partie de notre ADN, pour que chaque colis reflète votre identité.
+      </p>
+      <p>
+        Grâce à une approche orientée qualité et innovation, Bara Pack répond également aux marchés nationaux et internationaux, en assurant
+        des standards constants. Nous investissons continuellement dans l’amélioration de nos processus et dans le contrôle qualité pour
+        garantir des produits fiables, expédition après expédition.
+      </p>
+
+      <div class="about-highlight">
+        <div class="about-box">
+          <h3>Qualité & Fiabilité</h3>
+          <p>Des matériaux sélectionnés et des contrôles stricts pour une tenue parfaite.</p>
+        </div>
+        <div class="about-box">
+          <h3>Personnalisation</h3>
+          <p>Rubans et sachets sur mesure pour valoriser votre marque.</p>
+        </div>
+        <div class="about-box">
+          <h3>Couverture nationale</h3>
+          <p>Livraison partout en Algérie et vers l’Afrique/Europe selon volumes.</p>
+        </div>
+        <div class="about-box">
+          <h3>Accompagnement pro</h3>
+          <p>Conseil, réactivité et suivi pour garantir un résultat irréprochable.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Slider Photos -->
+<section class="photo-slider">
+  <div class="slider-card">
+    <h3 class="slider-title">Galerie Produit</h3>
+    <button class="slider-btn left" id="prevBtn" aria-label="Précédent">‹</button>
+    <button class="slider-btn right" id="nextBtn" aria-label="Suivant">›</button>
+
+    <div class="slider-viewport" id="sliderViewport">
+      <div class="slider-track" id="sliderTrack">
+        <div class="slide"><img src="https://i.ibb.co/ksdxqNRd/Whats-App-Image-2026-02-08-at-18-18-23-3.jpg" alt="Production"></div>
+        <div class="slide"><img src="https://i.ibb.co/RTfDpcm5/Whats-App-Image-2026-02-08-at-18-18-23-2.jpg" alt="Machine industrielle"></div>
+        <div class="slide"><img src="https://i.ibb.co/tPnFGZW8/Whats-App-Image-2026-02-08-at-18-18-23-1.jpg" alt="Contrôle qualité"></div>
+        <div class="slide"><img src="https://i.ibb.co/23fGVNWW/Whats-App-Image-2026-02-08-at-18-18-23.jpg" alt="Logistique"></div>
+      </div>
+    </div>
+    <div class="slider-dots" id="sliderDots"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <h2 class="section-title">Questions Fréquentes</h2>
+  <div class="faq-accordion">
+    <button class="faq-q" aria-expanded="false">Quels types de rubans adhésifs proposez-vous ? <span class="icon">+</span></button>
+    <div class="faq-a"><p>Nous proposons une gamme variée : rubans pour peinture, rubans d'emballage, rubans scolaires.</p></div>
+
+    <button class="faq-q" aria-expanded="false">Quelle est la quantité minimale de commande ? <span class="icon">+</span></button>
+    <div class="faq-a"><p>Le minimum est de 10 cartons (possibilité de mélanger plusieurs produits).</p></div>
+
+    <button class="faq-q" aria-expanded="false">Proposez-vous la livraison ? <span class="icon">+</span></button>
+    <div class="faq-a"><p>Oui, nous livrons partout en Algérie et vers les pays d'Afrique et d'Europe. La livraison est gratuite à partir de 60 cartons.</p></div>
+  </div>
+</section>
+
+<!-- Contacts -->
+<section id="contacts" class="contacts-section">
+  <h2 class="section-title">Contactez-nous</h2>
+  <div class="contacts-card">
+    <h3>Service Commercial</h3>
+    <p><a href="tel:+213549491811">+213 549 49 18 11</a></p>
+    <p><a href="tel:+213778251088">+213 778 25 10 88</a></p>
+    <h3>Email</h3>
+    <p><a href="mailto:Barapack.dz@gmail.com">Barapack.dz@gmail.com</a></p>
+    <div class="social-links">
+      <a class="fb" href="https://www.facebook.com/bara.pack.2025" target="_blank"><img src="https://cdn.simpleicons.org/facebook/ffffff" alt="Facebook"></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© Tous droits réservés. Bara Pack - 2026</p>
+  <p>Powered By SITEMAGIQUE</p>
+</footer>
+
+<!-- CART DRAWER -->
+<div id="drawer-overlay" class="drawer-overlay"></div>
+<div id="cart-drawer" class="drawer">
+  <div class="drawer-header">
+    <div class="drawer-title">Votre Panier</div>
+    <button onclick="closeDrawer()" style="background:none;border:none;font-size:20px;cursor:pointer;">✕</button>
+  </div>
+  <div id="drawer-content" class="drawer-content"></div>
+  <div class="drawer-footer">
+    <a href="panier.html" class="checkout-btn">Confirmer la commande</a>
+    <div style="font-size:11px; margin-top:8px; text-align:center; color:#666;">Minimum : 10 cartons au total.</div>
+  </div>
+</div>
+
+<script>
+// Menu
+function toggleMenu() {
+  const m = document.getElementById('menu');
+  m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
+}
+
+// FAQ Accordion
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const panel = btn.nextElementSibling;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    document.querySelectorAll('.faq-q[aria-expanded="true"]').forEach(openBtn => {
+      if (openBtn !== btn) {
+        openBtn.setAttribute('aria-expanded', 'false');
+        openBtn.nextElementSibling.style.maxHeight = null;
+      }
+    });
+    btn.setAttribute('aria-expanded', !expanded);
+    panel.style.maxHeight = expanded ? null : panel.scrollHeight + 'px';
+  });
+});
+
+// Slider logic (flèches + swipe) + ajustement hauteur
+const track = document.getElementById('sliderTrack');
+const slides = Array.from(track.children);
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const dotsWrap = document.getElementById('sliderDots');
+const viewport = document.getElementById('sliderViewport');
+let current = 0;
+
+// Dots
+slides.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.addEventListener('click', () => goTo(i));
+  dotsWrap.appendChild(d);
+});
+const dots = Array.from(dotsWrap.children);
+
+function updateHeight() {
+  const img = slides[current].querySelector('img');
+  if (!img) return;
+  // Si l'image n'est pas encore chargée, attendre son onload
+  if (!img.complete || img.naturalHeight === 0) {
+    img.onload = () => requestAnimationFrame(updateHeight);
+    return;
+  }
+  viewport.style.height = img.clientHeight + 'px';
+}
+
+function update() {
+  track.style.transform = `translateX(-${current * 100}%)`;
+  dots.forEach((d,i)=>d.classList.toggle('active', i===current));
+  updateHeight();
+}
+
+function goTo(i){
+  current = (i + slides.length) % slides.length;
+  update();
+}
+prevBtn.addEventListener('click', ()=>goTo(current-1));
+nextBtn.addEventListener('click', ()=>goTo(current+1));
+
+// Swipe
+let startX = 0, currentX = 0, dragging = false;
+viewport.addEventListener('touchstart', (e)=>{
+  startX = e.touches[0].clientX; currentX = startX; dragging = true;
+}, {passive:true});
+viewport.addEventListener('touchmove', (e)=>{
+  if(!dragging) return;
+  currentX = e.touches[0].clientX;
+}, {passive:true});
+viewport.addEventListener('touchend', ()=>{
+  if(!dragging) return;
+  const diff = currentX - startX;
+  if(diff > 50) goTo(current-1);
+  else if(diff < -50) goTo(current+1);
+  dragging = false;
+});
+
+// Ajuster la hauteur au chargement et au redimensionnement
+window.addEventListener('load', update);
+window.addEventListener('resize', update);
+
+// Initial
+update();
+
+// Cart (garde la logique existante)
+let cart = JSON.parse(localStorage.getItem('rock_cart') || '[]');
+cart = cart.map(item => {
+  if(!item.key){
+    const color = item.color || item.selectedColor || null;
+    const yard = item.yard || item.selectedYard || null;
+    return {...item, color, yard, key: `${item.id}|${color||''}|${yard||''}`};
+  }
+  return item;
+});
+
+function updateBadge() {
+  const b = document.getElementById('cart-badge');
+  const count = cart.reduce((s, i) => s + i.qty, 0);
+  b.textContent = count;
+  b.style.display = count > 0 ? 'inline-block' : 'none';
+}
+function openDrawer() {
+  document.getElementById('drawer-overlay').style.display = 'block';
+  document.getElementById('cart-drawer').classList.add('open');
+}
+function closeDrawer() {
+  document.getElementById('drawer-overlay').style.display = 'none';
+  document.getElementById('cart-drawer').classList.remove('open');
+}
+function renderDrawer() {
+  const content = document.getElementById('drawer-content');
+  if(cart.length === 0) {
+    content.innerHTML = '<p style="text-align:center; padding:20px;">Votre panier est vide.</p>';
+    return;
+  }
+  content.innerHTML = cart.map(item => {
+    let opt = '';
+    if(item.color) opt += `Couleur: ${item.color}`;
+    if(item.yard) opt += (opt ? ' | ' : '') + `Yard: ${item.yard}`;
+    return `
+    <div class="cart-item">
+      <img src="${item.image}">
+      <div class="item-info">
+        <div class="item-name">${item.name}</div>
+        ${opt ? `<div style="font-size:11px;color:#007bff;margin-top:2px;">${opt}</div>` : ''}
+        <div style="margin-top:5px;">
+            Qté: <input class="qty-input" type="number" min="1" value="${item.qty}" onchange="updateQty('${item.key}', this.value)">
+            <button class="remove-btn" onclick="removeItem('${item.key}')">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  `;
+  }).join('');
+}
+function updateQty(key, v) {
+  const item = cart.find(i => i.key === key);
+  if(item) item.qty = parseInt(v) || 1;
+  saveCart();
+}
+function removeItem(key) {
+  cart = cart.filter(i => i.key !== key);
+  saveCart();
+  renderDrawer();
+}
+function saveCart() {
+  localStorage.setItem('rock_cart', JSON.stringify(cart));
+  updateBadge();
+}
+
+document.getElementById('drawer-overlay').onclick = closeDrawer;
+updateBadge();
+renderDrawer();
+</script>
+
+</body>
+</html>
