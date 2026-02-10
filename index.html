@@ -374,6 +374,7 @@ footer {background:#333;color:#fff;text-align:center;padding:20px;margin-top:40p
     <a href="about.html">À propos</a>
     <a href="#produits">Produits</a>
     <a href="#faq">FAQ</a>
+    <a href="#localisation">Localisation</a>
     <a href="#contacts">Contact</a>
   </nav>
 </header>
@@ -427,6 +428,145 @@ footer {background:#333;color:#fff;text-align:center;padding:20px;margin-top:40p
   </div>
 </section>
 
+<!-- MAPS - CARTE GOOGLE MAPS BARA PACK (POLICES IDENTIQUES) -->
+<section id="localisation">
+  <!-- Import des fonts (une seule fois, si pas déjà dans le <head>) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  
+  <h2 class="section-title" style="font-family: 'Montserrat', sans-serif; font-weight: 700;">Notre Localisation</h2>
+  
+  <div style="max-width: 900px; margin: 0 auto 60px; padding: 0 20px; font-family: 'Roboto', Tahoma, sans-serif;">
+    <!-- Carte complète stylisée pour Bara Pack -->
+    <div style="
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+      border: 1px solid #eee;
+    ">
+      <!-- En-tête de la carte -->
+      <div style="
+        background: linear-gradient(120deg, #fff, #00d4ff);
+        color: #000000;
+        padding: 20px 24px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      ">
+        <!-- Icône localisation -->
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        <div>
+          <h3 style="margin: 0; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 18px;">Bara Pack - Alger</h3>
+        </div>
+      </div>
+
+      <!-- VOTRE IFRAME EXACTE (rendu responsive) -->
+      <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d798.9971423566566!2d3.2626795695418083!3d36.77084167253963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128e45bc43b042a3%3A0x3ee628cc281e2bbe!2sBara%20Pack!5e0!3m2!1sfr!2sdz!4v1770684562291!5m2!1sfr!2sdz"
+          width="100%" 
+          height="100%" 
+          style="position: absolute; top: 0; left: 0; border: 0;"
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Bara Pack - Localisation exacte"
+        ></iframe>
+      </div>
+
+      <!-- Pied de carte avec boutons CTA -->
+      <div style="padding: 20px; background: #fafafa; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; align-items: center;">
+        <!-- Bouton Itinéraire -->
+        <a 
+          href="https://maps.app.goo.gl/SQsVSu64sQxKYTcP9" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style="
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: #007bff;
+            color: #fff !important;
+            font-family: 'Roboto', Tahoma, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,123,255,0.3);
+          "
+          onmouseover="this.style.background='#0056b3'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(0,123,255,0.4)';"
+          onmouseout="this.style.background='#007bff'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,123,255,0.3)';"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+          </svg>
+          Itinéraire
+        </a>
+        
+        <!-- Bouton Voir sur Maps -->
+        <a 
+          href="https://maps.app.goo.gl/SQsVSu64sQxKYTcP9" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style="
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: #fff;
+            color: #007bff !important;
+            font-family: 'Roboto', Tahoma, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 10px;
+            text-decoration: none;
+            border: 2px solid #007bff;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+          "
+          onmouseover="this.style.background='#007bff'; this.style.color='#fff !important'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(0,123,255,0.4)';"
+          onmouseout="this.style.background='#fff'; this.style.color='#007bff !important'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="9" y1="9" x2="15" y2="9"></line>
+            <line x1="9" y1="15" x2="15" y2="15"></line>
+          </svg>
+          Voir sur Maps
+        </a>
+      </div>
+    </div>
+</section>
+
+<!-- Avis clients -->
+<section id="avis">
+  <h2 class="section-title">Avis clients</h2>
+  <div class="contacts-card" style="max-width:900px;margin:0 auto;">
+    <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:center;">
+      <a href="https://g.page/r/Cb4rHijMKOY-EAE/review" target="_blank" rel="noopener">
+        <img
+          src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fg.page%2Fr%2FCb4rHijMKOY-EAE%2Freview"
+          alt="QR code avis Google Bara Pack"
+          style="width:200px;height:200px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,0.08);"
+        >
+      </a>
+      <div style="max-width:460px;text-align:center;">
+        <p class="company-desc" style="margin:0 0 16px;">
+          Scannez le QR code ou cliquez sur le bouton pour laisser votre avis Google.
+        </p>
+        <a class="learn-btn" href="https://g.page/r/Cb4rHijMKOY-EAE/review" target="_blank" rel="noopener">
+          Laisser un avis
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Contacts -->
 <section id="contacts" class="contacts-section">
   <h2 class="section-title">Contactez-nous</h2>
@@ -438,6 +578,9 @@ footer {background:#333;color:#fff;text-align:center;padding:20px;margin-top:40p
     <p><a href="mailto:Barapack.dz@gmail.com">Barapack.dz@gmail.com</a></p>
     <div class="social-links">
       <a class="fb" href="https://www.facebook.com/bara.pack.2025" target="_blank"><img src="https://cdn.simpleicons.org/facebook/ffffff" alt="Facebook"></a>
+      <a class="ig" href="https://www.instagram.com/barapackdz?igsh=MXRoaTl2ZmZrYmZiaA==" target="_blank" rel="noopener">
+  <img src="https://cdn.simpleicons.org/instagram/ffffff" alt="Instagram">
+</a>
     </div>
   </div>
 </section>
@@ -462,24 +605,28 @@ footer {background:#333;color:#fff;text-align:center;padding:20px;margin-top:40p
 </div>
 
 <script>
-// TOUS LES 11 PRODUITS TRADUITS
+// TOUS LES 9 PRODUITS TRADUITS
 const products = [
-  { id:"p1", name:"scotch Personalisé Fond Trensparent", description:"L'élégance de votre logo sur fond invisible. La signature premium pour vos colis.", image:"https://i.ibb.co/Q3nTqJMc/11.png", yard:false },
-  { id:"p2", name:"scotch Personalisé Fond Blanc", description:"L'élégance de votre logo sur fond blanc. La signature premium pour vos colis.", image:"https://i.ibb.co/0pFjVWdX/12.png", yard:false },
-  { id:"p3", name:"Papier Collant Jaune 16m / 44mm", description:"Ruban de masquage idéal pour la protection lors de travaux de peinture.", image:"https://i.ibb.co/N6GhTtbL/9.png", yard:false },
-  { id:"p4", name:"Papier Collant Blanc 16m / 44mm", description:"Protection de surfaces lors de la peinture, couleur blanche.", image:"https://i.ibb.co/LzrKpNj9/10.png", yard:false },
-  { id:"p5", name:"Scotch Emballage BRUN", description:"Spécialement conçu pour fermer les cartons lourds.", image:"https://i.ibb.co/Z1vY2chP/19.png", yard:true, yardOptions:["50","80","100","200","300","500","1000","1200"] },
-  { id:"p6", name:"Scotch Emballage CLAIR", description:"Ruban d'emballage haute transparence et forte adhérence.", image:"https://i.ibb.co/KxFK562m/7.png", yard:true, yardOptions:["50","80","100","200","300","500","1000","1200"] },
-  { id:"p7", name:"Scotch Emballage BLANC", description:"Ruban d'emballage haute transparence et forte adhérence.", image:"https://i.ibb.co/27TVYJWF/13.png", yard:true, yardOptions:["50","80","100","200","300","500","1000","1200"] },
-  { id:"p8", name:"Film étirable", description:"Film étirable disponible sur commande en bobines de 1kg à 50kg. Adapté à l'usage manuel ou machine.", image:"https://i.ibb.co/bRrDJ9Sh/16.png", yard:false,
+  { id:"p1", name:"Papier Collant 16m / 44mm", description:"Ruban de masquage idéal pour la protection lors de travaux de peinture.", image:"https://i.ibb.co/YF1Df8dr/23.png", yard:false,
+    colors:[
+      { name:"JAUNE", hex:"#FFFF00", img:"https://i.ibb.co/YF1Df8dr/23.png" },
+      { name:"BLANC", hex:"#fff", img:"https://i.ibb.co/v4dsRyKW/24.png" },
+    ]
+    },
+  { id:"p2", name:"Ruban adhésifs Personalisé Fond TRANSPARENT", description:"L'élégance de votre logo sur fond invisible. La signature premium pour vos colis.", image:"https://i.ibb.co/Q3nTqJMc/11.png", yard:false },
+  { id:"p3", name:"Ruban adhésifs Personalisé Fond BLANC", description:"L'élégance de votre logo sur fond blanc. La signature premium pour vos colis.", image:"https://i.ibb.co/xS4Ghq5C/22.png", yard:false },
+  { id:"p4", name:"Ruban adhésifs d’emballage BRUN", description:"Ruban adhésif d'emballage brun, opacité élevée et forte adhérence.", image:"https://i.ibb.co/JjzX2bMB/25.png", yard:true, yardOptions:["50","80","100","200","300","500","1000","1200"] },
+  { id:"p5", name:"Ruban adhésifs d’emballage TRANSPARENT", description:"Ruban adhésifs d’emballage haute transparence et forte adhérence.", image:"https://i.ibb.co/23qjRghs/26.png", yard:true, yardOptions:["50","80","100","200","300","500","1000","1200"] },
+  { id:"p6", name:"Ruban adhésifs d’emballage BLANC", description:"Ruban adhésif d'emballage blanc, opacité élevée et forte adhérence.", image:"https://i.ibb.co/vxCPsZbt/27.png", yard:true, yardOptions:["50","80","100","200","300","500","1000","1200"] },
+  { id:"p7", name:"Film étirable", description:"Film étirable disponible sur commande en bobines de 1kg à 50kg. Adapté à l'usage manuel ou machine.", image:"https://i.ibb.co/bRrDJ9Sh/16.png", yard:false,
     colors:[
       { name:"Transparent", hex:"#e0e0e0", img:"https://i.ibb.co/XxDfFF4b/16.png" },
       { name:"Noir", hex:"#222", img:"https://i.ibb.co/XxDfFF4b/16.png" },
       { name:"Bleu", hex:"#0055ff", img:"https://i.ibb.co/XxDfFF4b/16.png" }
     ]
   },
-  { id:"p9", name:"Film thermorétractable", description:"Se moule à vos produits par la chaleur pour une protection solide et une finition professionnelle.", image:"https://i.ibb.co/PsKfMXFb/17.png", yard:false },
-  { id:"p10", name:"Sac Personaliser", description:"Sac plastique sur mesure à votre image. Votre logo, vos couleurs, votre format.", image:"https://i.ibb.co/bgP94r2V/18.png", yard:false },
+  { id:"p8", name:"Film thermorétractable", description:"Se moule à vos produits par la chaleur pour une protection solide et une finition professionnelle.", image:"https://i.ibb.co/4n4Bp5MM/20.png", yard:false },
+  { id:"p9", name:"Sac Personaliser", description:"Sac plastique sur mesure à votre image. Votre logo, vos couleurs, votre format.", image:"https://i.ibb.co/bgP94r2V/18.png", yard:false },
 ];
 
 // RENDER PRODUCTS
