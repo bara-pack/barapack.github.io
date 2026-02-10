@@ -81,7 +81,7 @@ nav a:hover {background:#f5f5f5;}
 .about-box h3 {margin:0 0 6px 0;font-size:16px;color:#0066cc;font-weight:700;}
 .about-box p {margin:0;font-size:14.5px;color:#334;line-height:1.6;}
 
-/* Slider Photos */
+/* Slider Photos Galerie */
 .photo-slider {
   max-width:1000px;margin:0 auto 70px;padding:0 20px;
 }
@@ -95,21 +95,20 @@ nav a:hover {background:#f5f5f5;}
 .slider-viewport {
   overflow:hidden;border-radius:16px;
   position:relative;
-  /* La hauteur sera définie en JS pour correspondre à l'image courante */
 }
 .slider-track {
   display:flex;transition:transform .4s ease; touch-action:pan-y;
 }
-.slide {
+.photo-slide {
   min-width:100%; position:relative; display:flex; justify-content:center; align-items:center;
 }
-.slide img {
+.photo-slide img {
   display:block;
-  width:auto;              /* pour respecter le format portrait */
-  max-width:100%;          /* ne pas dépasser la largeur du conteneur */
-  height:auto;             /* hauteur auto = pas de crop */
-  max-height:80vh;         /* sécurité pour très grandes images */
-  object-fit:contain;      /* ne jamais recadrer l’image */
+  width:auto;
+  max-width:100%;
+  height:auto;
+  max-height:80vh;
+  object-fit:contain;
 }
 
 /* Boutons au-dessus des images */
@@ -118,7 +117,7 @@ nav a:hover {background:#f5f5f5;}
   width:44px; height:44px; border-radius:50%; border:none; cursor:pointer;
   background:rgba(0,0,0,0.65); color:#fff; font-size:22px;
   display:flex; align-items:center; justify-content:center;
-  z-index:10;                /* toujours au-dessus des images */
+  z-index:10;
   box-shadow:0 4px 10px rgba(0,0,0,0.25);
 }
 .slider-btn.left {left:12px;}
@@ -150,10 +149,11 @@ nav a:hover {background:#f5f5f5;}
 .contacts-card {background:#fff;border:1px solid #eee;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,0.08);padding:24px;}
 .contacts-card a {color:#007bff;text-decoration:none;font-weight:700;}
 .social-links {margin-top:14px; display:flex; gap:10px; justify-content:center;}
-.social-links a {width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;}
+.social-links a {width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition: 0.3s;}
 .social-links a img {width:24px;height:24px;display:block;}
 .social-links a.fb {background:#1877f2;}
-.social-links a.fb img {filter: brightness(0) invert(1);} /* FIX icône blanche */
+.social-links a.ig {background:linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);} /* FIX Couleur Instagram */
+.social-links a:hover {transform: scale(1.1); opacity: 0.9;}
 
 /* Footer */
 footer {background:#333;color:#fff;text-align:center;padding:20px;margin-top:40px;}
@@ -181,7 +181,7 @@ footer {background:#333;color:#fff;text-align:center;padding:20px;margin-top:40p
 @media (max-width:768px){
   .page-hero {height:35vh;min-height:220px;}
   .slider-btn {width:40px;height:40px;font-size:20px;}
-  .slide img {max-height:70vh;}
+  .photo-slide img {max-height:70vh;}
 }
 </style>
 </head>
@@ -242,7 +242,7 @@ footer {background:#333;color:#fff;text-align:center;padding:20px;margin-top:40p
       <p>
         Grâce à une approche orientée qualité et innovation, Bara Pack propose des produits de qualité constante pour les marchés nationaux et internationaux. Nous investissons continuellement dans l'amélioration de nos processus de fabrication et dans le contrôle qualité pour garantir des produits fiables et performants, expédition après expédition.
       </p>
-  
+
       <div class="about-highlight">
         <div class="about-box">
           <h3>Qualité & Fiabilité</h3>
@@ -265,7 +265,7 @@ footer {background:#333;color:#fff;text-align:center;padding:20px;margin-top:40p
   </div>
 </section>
 
-<!-- Slider Photos -->
+<!-- Slider Photos Galerie -->
 <section class="photo-slider">
   <div class="slider-card">
     <h3 class="slider-title">Galerie Produit</h3>
@@ -274,10 +274,10 @@ footer {background:#333;color:#fff;text-align:center;padding:20px;margin-top:40p
 
     <div class="slider-viewport" id="sliderViewport">
       <div class="slider-track" id="sliderTrack">
-        <div class="slide"><img src="https://i.ibb.co/ksdxqNRd/Whats-App-Image-2026-02-08-at-18-18-23-3.jpg" alt="Production"></div>
-        <div class="slide"><img src="https://i.ibb.co/RTfDpcm5/Whats-App-Image-2026-02-08-at-18-18-23-2.jpg" alt="Machine industrielle"></div>
-        <div class="slide"><img src="https://i.ibb.co/tPnFGZW8/Whats-App-Image-2026-02-08-at-18-18-23-1.jpg" alt="Contrôle qualité"></div>
-        <div class="slide"><img src="https://i.ibb.co/23fGVNWW/Whats-App-Image-2026-02-08-at-18-18-23.jpg" alt="Logistique"></div>
+        <div class="photo-slide"><img src="https://i.ibb.co/ksdxqNRd/Whats-App-Image-2026-02-08-at-18-18-23-3.jpg" alt="Production"></div>
+        <div class="photo-slide"><img src="https://i.ibb.co/RTfDpcm5/Whats-App-Image-2026-02-08-at-18-18-23-2.jpg" alt="Machine industrielle"></div>
+        <div class="photo-slide"><img src="https://i.ibb.co/tPnFGZW8/Whats-App-Image-2026-02-08-at-18-18-23-1.jpg" alt="Contrôle qualité"></div>
+        <div class="photo-slide"><img src="https://i.ibb.co/23fGVNWW/Whats-App-Image-2026-02-08-at-18-18-23.jpg" alt="Logistique"></div>
       </div>
     </div>
     <div class="slider-dots" id="sliderDots"></div>
@@ -311,14 +311,132 @@ footer {background:#333;color:#fff;text-align:center;padding:20px;margin-top:40p
     <div class="social-links">
       <a class="fb" href="https://www.facebook.com/bara.pack.2025" target="_blank"><img src="https://cdn.simpleicons.org/facebook/ffffff" alt="Facebook"></a>
       <a class="ig" href="https://www.instagram.com/barapackdz?igsh=MXRoaTl2ZmZrYmZiaA==" target="_blank" rel="noopener">
-  <img src="https://cdn.simpleicons.org/instagram/ffffff" alt="Instagram">
-</a>
+        <img src="https://cdn.simpleicons.org/instagram/ffffff" alt="Instagram">
+      </a>
     </div>
   </div>
 </section>
 
+<!-- SECTION NOS PARTENAIRES - BARA PACK -->
+<section id="partenaires" style="margin: 80px 0;">
+    <h2 class="section-title">Nos Partenaires</h2>
+
+    <style>
+        .partners-slider-container {
+            width: 100%;
+            height: 120px;
+            margin: auto;
+            position: relative;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px 0;
+        }
+
+        .partners-slider-track {
+            display: flex;
+            width: calc(145px * 26);
+            animation: scroll-infinite 30s linear infinite;
+        }
+
+        .partners-slider-container:hover .partners-slider-track {
+            animation-play-state: paused;
+        }
+
+        .partners-slide {
+            width: 115px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin: 0 15px;
+        }
+
+        .partners-slide img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: 0.4s;
+            opacity: 0.8;
+        }
+
+        .partners-slide:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        @keyframes scroll-infinite {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-145px * 13)); }
+        }
+
+        .partners-slider-container::before,
+        .partners-slider-container::after {
+            content: "";
+            height: 100%;
+            position: absolute;
+            width: 15%;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .partners-slider-container::before {
+            left: 0;
+            background: linear-gradient(to right, #f9fbff 0%, rgba(249, 251, 255, 0) 100%);
+        }
+        .partners-slider-container::after {
+            right: 0;
+            background: linear-gradient(to left, #f9fbff 0%, rgba(249, 251, 255, 0) 100%);
+        }
+
+        @media (max-width: 768px) {
+            .partners-slide { width: 90px; margin: 0 10px; }
+            .partners-slider-track { width: calc(110px * 26); }
+            @keyframes scroll-infinite {
+                100% { transform: translateX(calc(-110px * 13)); }
+            }
+        }
+    </style>
+
+    <div class="partners-slider-container">
+        <div class="partners-slider-track">
+            <!-- LES 13 LOGOS ORIGINAUX -->
+            <div class="partners-slide"><img src="https://i.ibb.co/KxrpVKH7/1.png" alt="Logo 1"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/CK6BNS1M/2.png" alt="Logo 2"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/wZVX3PWV/3.png" alt="Logo 3"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/whpVqnBt/4.png" alt="Logo 4"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/fV96MSXK/5.png" alt="Logo 5"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/DTPJYMV/6.png" alt="Logo 6"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/4RnB9MDD/7.png" alt="Logo 7"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/s0r1SYk/8.png" alt="Logo 8"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/5WWwPm3G/9.png" alt="Logo 9"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/S4dvRkD6/10.png" alt="Logo 10"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/zWLRQVk8/11.png" alt="Logo 11"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/Z1FdX8MQ/12.png" alt="Logo 12"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/8DCDL5S9/13.png" alt="Logo 13"></div>
+
+            <!-- LES 13 LOGOS DUPLIQUÉS -->
+            <div class="partners-slide"><img src="https://i.ibb.co/KxrpVKH7/1.png" alt="Logo 1"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/CK6BNS1M/2.png" alt="Logo 2"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/wZVX3PWV/3.png" alt="Logo 3"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/whpVqnBt/4.png" alt="Logo 4"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/fV96MSXK/5.png" alt="Logo 5"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/DTPJYMV/6.png" alt="Logo 6"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/4RnB9MDD/7.png" alt="Logo 7"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/s0r1SYk/8.png" alt="Logo 8"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/5WWwPm3G/9.png" alt="Logo 9"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/S4dvRkD6/10.png" alt="Logo 10"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/zWLRQVk8/11.png" alt="Logo 11"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/Z1FdX8MQ/12.png" alt="Logo 12"></div>
+            <div class="partners-slide"><img src="https://i.ibb.co/8DCDL5S9/13.png" alt="Logo 13"></div>
+        </div>
+    </div>
+</section>
+
 <footer>
-  <p>© Tous droits réservés. Bara Pack - 2026</p>
+  <p>© Tous droits réservés. EURL Global Bara Pack - 2026</p>
   <p>Powered By SITEMAGIQUE</p>
 </footer>
 
@@ -359,7 +477,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 });
 
-// Slider logic (flèches + swipe) + ajustement hauteur
+// Slider Galerie Photo
 const track = document.getElementById('sliderTrack');
 const slides = Array.from(track.children);
 const prevBtn = document.getElementById('prevBtn');
@@ -368,7 +486,6 @@ const dotsWrap = document.getElementById('sliderDots');
 const viewport = document.getElementById('sliderViewport');
 let current = 0;
 
-// Dots
 slides.forEach((_, i) => {
   const d = document.createElement('div');
   d.className = 'dot' + (i === 0 ? ' active' : '');
@@ -380,7 +497,6 @@ const dots = Array.from(dotsWrap.children);
 function updateHeight() {
   const img = slides[current].querySelector('img');
   if (!img) return;
-  // Si l'image n'est pas encore chargée, attendre son onload
   if (!img.complete || img.naturalHeight === 0) {
     img.onload = () => requestAnimationFrame(updateHeight);
     return;
@@ -401,41 +517,22 @@ function goTo(i){
 prevBtn.addEventListener('click', ()=>goTo(current-1));
 nextBtn.addEventListener('click', ()=>goTo(current+1));
 
-// Swipe
-let startX = 0, currentX = 0, dragging = false;
-viewport.addEventListener('touchstart', (e)=>{
-  startX = e.touches[0].clientX; currentX = startX; dragging = true;
-}, {passive:true});
-viewport.addEventListener('touchmove', (e)=>{
+// Swipe Mobile
+let startX = 0, dragging = false;
+viewport.addEventListener('touchstart', (e)=>{ startX = e.touches[0].clientX; dragging = true; }, {passive:true});
+viewport.addEventListener('touchend', (e)=>{
   if(!dragging) return;
-  currentX = e.touches[0].clientX;
-}, {passive:true});
-viewport.addEventListener('touchend', ()=>{
-  if(!dragging) return;
-  const diff = currentX - startX;
+  const diff = e.changedTouches[0].clientX - startX;
   if(diff > 50) goTo(current-1);
   else if(diff < -50) goTo(current+1);
   dragging = false;
 });
 
-// Ajuster la hauteur au chargement et au redimensionnement
 window.addEventListener('load', update);
 window.addEventListener('resize', update);
 
-// Initial
-update();
-
-// Cart (garde la logique existante)
+// Cart Drawer Logic
 let cart = JSON.parse(localStorage.getItem('rock_cart') || '[]');
-cart = cart.map(item => {
-  if(!item.key){
-    const color = item.color || item.selectedColor || null;
-    const yard = item.yard || item.selectedYard || null;
-    return {...item, color, yard, key: `${item.id}|${color||''}|${yard||''}`};
-  }
-  return item;
-});
-
 function updateBadge() {
   const b = document.getElementById('cart-badge');
   const count = cart.reduce((s, i) => s + i.qty, 0);
@@ -445,6 +542,7 @@ function updateBadge() {
 function openDrawer() {
   document.getElementById('drawer-overlay').style.display = 'block';
   document.getElementById('cart-drawer').classList.add('open');
+  renderDrawer();
 }
 function closeDrawer() {
   document.getElementById('drawer-overlay').style.display = 'none';
@@ -456,24 +554,18 @@ function renderDrawer() {
     content.innerHTML = '<p style="text-align:center; padding:20px;">Votre panier est vide.</p>';
     return;
   }
-  content.innerHTML = cart.map(item => {
-    let opt = '';
-    if(item.color) opt += `Couleur: ${item.color}`;
-    if(item.yard) opt += (opt ? ' | ' : '') + `Yard: ${item.yard}`;
-    return `
+  content.innerHTML = cart.map(item => `
     <div class="cart-item">
       <img src="${item.image}">
       <div class="item-info">
         <div class="item-name">${item.name}</div>
-        ${opt ? `<div style="font-size:11px;color:#007bff;margin-top:2px;">${opt}</div>` : ''}
         <div style="margin-top:5px;">
             Qté: <input class="qty-input" type="number" min="1" value="${item.qty}" onchange="updateQty('${item.key}', this.value)">
             <button class="remove-btn" onclick="removeItem('${item.key}')">Supprimer</button>
         </div>
       </div>
     </div>
-  `;
-  }).join('');
+  `).join('');
 }
 function updateQty(key, v) {
   const item = cart.find(i => i.key === key);
@@ -492,7 +584,6 @@ function saveCart() {
 
 document.getElementById('drawer-overlay').onclick = closeDrawer;
 updateBadge();
-renderDrawer();
 </script>
 
 </body>
