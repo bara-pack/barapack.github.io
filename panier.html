@@ -95,9 +95,13 @@
   .contacts-card{background:#fff;border:1px solid #eee;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,0.08);padding:24px}
   .contacts-card a{color:#007bff;text-decoration:none;font-weight:700}
   .social-links{margin-top:14px;display:flex;gap:10px;justify-content:center}
-  .social-links a{width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+  .social-links a{width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;transition: 0.3s;}
   .social-links a img{width:26px;height:26px;display:block}
-  .social-links a.fb{background:transparent}
+  
+  /* FIX : Réglage icônes réseaux sociaux */
+  .social-links a.fb{background:#1877f2;}
+  .social-links a.ig{background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);}
+  .social-links a:hover{transform: scale(1.1); opacity: 0.9;}
 
   footer{background:#333;color:#fff;text-align:center;padding:20px;margin-top:40px}
 </style>
@@ -213,7 +217,7 @@
     <p><a href="mailto:Barapack.dz@gmail.com">Barapack.dz@gmail.com</a></p>
     <div class="social-links">
       <a class="fb" href="https://www.facebook.com/bara.pack.2025" target="_blank" rel="noopener">
-        <img src="https://cdn.simpleicons.org/facebook/1877f2" alt="Facebook"></a>
+        <img src="https://cdn.simpleicons.org/facebook/ffffff" alt="Facebook"></a>
       <a class="ig" href="https://www.instagram.com/barapackdz?igsh=MXRoaTl2ZmZrYmZiaA==" target="_blank" rel="noopener">
         <img src="https://cdn.simpleicons.org/instagram/ffffff" alt="Instagram">
       </a>
@@ -383,7 +387,7 @@ document.getElementById("order-form").addEventListener("submit", function(e){
   }
 });
 
-/* Pays + indicatifs de tous les pays (chargement automatique) */
+/* Pays + indicatifs */
 const countrySelect = document.getElementById("country");
 const codeSelect = document.getElementById("country-code");
 
